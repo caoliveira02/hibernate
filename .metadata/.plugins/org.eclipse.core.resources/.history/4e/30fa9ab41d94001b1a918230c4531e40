@@ -1,0 +1,5 @@
+package br.com.loja.produto;
+
+public enum Categoria {
+
+}
