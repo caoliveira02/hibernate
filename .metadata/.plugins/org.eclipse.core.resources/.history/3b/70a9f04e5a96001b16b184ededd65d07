@@ -3,6 +3,7 @@ package br.com.loja.dao;
 import javax.persistence.EntityManager;
 
 import br.com.loja.produto.Cliente;
+import br.com.loja.produto.Produto;
 
 public class ClienteDao {
 	

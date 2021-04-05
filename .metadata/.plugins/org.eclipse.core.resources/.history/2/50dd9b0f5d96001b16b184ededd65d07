@@ -77,9 +77,5 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 
-	public BigDecimal getVarlor() {
-		return precoUnitario.multiply(new BigDecimal(quantidade));
-	}
-
 
 }
