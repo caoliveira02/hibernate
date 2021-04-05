@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
@@ -23,14 +20,13 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "valor_total")
-	private BigDecimal valorTotal;
+	private BigDecimal vlTotal;
 	private LocalDate dataCadastro = LocalDate.now();
 	
 	@ManyToOne
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itens = new ArrayList<>();
 		
 	public Pedido() {
@@ -62,12 +58,12 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public BigDecimal getValorTotal() {
-		return valorTotal;
+	public BigDecimal getVlTotal() {
+		return vlTotal;
 	}
 
-	public void setValorTotal(BigDecimal valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setVlTotal(BigDecimal vlTotal) {
+		this.vlTotal = vlTotal;
 	}
 
 	public LocalDate getDataCadastro() {
