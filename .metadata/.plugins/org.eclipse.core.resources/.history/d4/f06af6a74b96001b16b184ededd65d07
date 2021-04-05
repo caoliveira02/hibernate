@@ -35,11 +35,6 @@ public class Pedido {
 	public Pedido(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	public void adcionarItem(ItemPedido item) {
-		item.setPedido(this);
-		this.itens.add(item);		
-	}
 
 	public long getId() {
 		return id;
@@ -73,5 +68,6 @@ public class Pedido {
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+	
 
 }
