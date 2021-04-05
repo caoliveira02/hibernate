@@ -11,6 +11,8 @@
     <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
     <fullyQualifiedTypeName name="br.com.loja.util.JPAUtil"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="br.com.loja.produto.Categoria"/>
     <fullyQualifiedTypeName name="javax.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="br.com.loja.produto.Categoria"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
