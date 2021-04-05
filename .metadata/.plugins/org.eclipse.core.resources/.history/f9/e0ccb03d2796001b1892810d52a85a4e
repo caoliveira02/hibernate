@@ -23,7 +23,6 @@ public class CadastroDePoduto {
 		CategoriaDao categoriaDao = new CategoriaDao(em);
 		
 		em.getTransaction().begin();
-		categoriaDao.cadastrar(celulares);
 		produtoDao.cadastrar(produto);
 		em.getTransaction().commit();
 		em.close();

@@ -1,0 +1,19 @@
+package br.com.loja.dao;
+
+import javax.persistence.EntityManager;
+
+import br.com.loja.produto.Produto;
+
+public class CategoriaDao {
+	
+	private EntityManager em;
+
+	public CategoriaDao(EntityManager em) {
+		super();
+		this.em = em;
+	}
+	
+	public void cadastrar(Produto produto) {
+		this.em.persist(produto);
+	}
+}
