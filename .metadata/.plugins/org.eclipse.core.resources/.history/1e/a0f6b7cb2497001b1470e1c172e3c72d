@@ -64,16 +64,16 @@ public class CadastroDePedido {
 	}
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
-		Categoria computadores = new Categoria("COMPUTADOR");
-		Categoria eletronicos = new Categoria("ELETRONICOS");
-		
 		Produto produto = new Produto("Iphone", "Iphone 11", new BigDecimal(1000), celulares);
-		Produto produto2 = new Produto("NOTEBOOK", "DELL", new BigDecimal(7000), computadores);
-		Produto produto3 = new Produto("Barbeador", "LG", new BigDecimal(500), eletronicos);
-		
 		Cliente cliente = new Cliente("Carlos","123.560.980-11");
+
+		Categoria computadores = new Categoria("COMPUTADOR");
+		Produto produto2 = new Produto("NOTEBOOK", "DELL", new BigDecimal(7000), computadores);
 		Cliente cliente2 = new Cliente("Antonio","493.560.980-11");
 		
+		Categoria eletronicos = new Categoria("ELETRONICOS");
+		Produto produto3 = new Produto("Barbeador", "LG", new BigDecimal(500), eletronicos);
+	
 
 		EntityManager em = JPAUtil.getEntityManager();
 		
@@ -82,16 +82,16 @@ public class CadastroDePedido {
 		ClienteDao clienteDao = new ClienteDao(em);
 		
 		em.getTransaction().begin();
-		
 		categoriaDao.cadastrar(celulares);
-		categoriaDao.cadastrar(computadores);
-		categoriaDao.cadastrar(eletronicos);
-		
 		produtoDao.cadastrar(produto);
+		clienteDao.cadastrar(cliente);
+		
+		categoriaDao.cadastrar(computadores);
 		produtoDao.cadastrar(produto2);
+		
+		categoriaDao.cadastrar(eletronicos);
 		produtoDao.cadastrar(produto3);
 		
-		clienteDao.cadastrar(cliente);
 		clienteDao.cadastrar(cliente2);
 		
 		em.getTransaction().commit();

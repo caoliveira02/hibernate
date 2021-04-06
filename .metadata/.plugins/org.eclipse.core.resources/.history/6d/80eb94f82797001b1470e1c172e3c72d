@@ -26,7 +26,7 @@ public class Produto {
 	private BigDecimal preco;
 	private LocalDate dataCadastro = LocalDate.now();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Categoria categoria;
 	
 	public Produto() {

@@ -22,10 +22,10 @@ public class ItemPedido {
 	private BigDecimal precoUnitario;
 	private int quantidade;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Pedido pedido;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Produto produto;
 	
 	public ItemPedido() {
