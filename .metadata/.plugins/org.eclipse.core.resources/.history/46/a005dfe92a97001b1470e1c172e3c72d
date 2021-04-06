@@ -61,10 +61,6 @@ public class CadastroDePedido {
 		List<RelatorioDeVendasVo> relatorio2 = pedidoDao.relatorioDeVendasVO();
 		relatorio2.forEach(System.out::println);
 		
-		Pedido pedido1A = pedidoDao.buscarPedidoComCliente(1l);
-		em.close();
-		System.out.println(pedido1A.getCliente().getNome());
-		
 	}
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
