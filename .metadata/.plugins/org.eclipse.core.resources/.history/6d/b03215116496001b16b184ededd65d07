@@ -1,0 +1,11 @@
+package br.com.loja.vo;
+
+import java.time.LocalDate;
+
+public final class RelatorioDeVendasVo {
+	
+	private String nomeProduto;
+	private long quantidadeVendida;
+	private LocalDate dataUltimaVenda;
+
+}

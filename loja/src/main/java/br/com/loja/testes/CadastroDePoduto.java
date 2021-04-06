@@ -35,12 +35,15 @@ public class CadastroDePoduto {
 		BigDecimal precoProduto = produtoDao.buscarPrecoDoProdutoComNome("Iphone");
 		System.out.println("Preço do produto: " + precoProduto);
 
+		/*List<Produto> produtoPorCategoria = produtoDao.buscarProdutoPorCategoria("CELULARES");
+		produtoPorCategoria.forEach(p4 -> System.out.println("NamedQuey:" + p.getDataCadastro()));*/
 	}
 
 	private static void cadastrarProduto() {
 		Categoria celulares = new Categoria("CELULARES");
 		Produto produto = new Produto("Iphone", "Iphone 11", new BigDecimal(1000), celulares);
-			
+		
+		
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		ProdutoDao produtoDao = new ProdutoDao(em);

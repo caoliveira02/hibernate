@@ -1,6 +1,7 @@
 package br.com.loja.testes;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -23,28 +24,47 @@ public class CadastroDePedido {
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		Produto produto = produtoDao.buscarPorId(1l);
+		Produto produto2 = produtoDao.buscarPorId(2l);
 		
 		ClienteDao clienteDao = new ClienteDao(em);
 		Cliente cliente = clienteDao.buscarPorId(1l);
+		Cliente cliente2 = clienteDao.buscarPorId(2l);
 		
 		em.getTransaction().begin();
 		Pedido pedido = new Pedido(cliente);
 		pedido.adcionarItem(new ItemPedido(10, pedido, produto));
+
+		Pedido pedido2 = new Pedido(cliente2);
+		pedido.adcionarItem(new ItemPedido(5, pedido2, produto2));
+
 		
 		PedidoDao pedidoDao = new PedidoDao(em);
 		pedidoDao.cadastrar(pedido);
+		pedidoDao.cadastrar(pedido2);
 		em.getTransaction().commit();
 		
 		BigDecimal totalVendido = pedidoDao.valorTotalVendido();
 		System.out.println("VALOR TOTAL VENDIDO: " + totalVendido);
 		
+		List<Object[]> relatorio = pedidoDao.relatorioDeVendas();
+		for (Object[] obj : relatorio) {
+			System.out.println("Produto 1: " + obj[0]);
+			System.out.println("Produto 2: " + obj[1]);
+		}
+		
+		/*List<RelatorioDeVendasVo> relatorio = pedidoDao.relatorioDeVendas();
+		relatorio.forEach(System.out::println);*/
+		
 	}
-	
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
 		Produto produto = new Produto("Iphone", "Iphone 11", new BigDecimal(1000), celulares);
 		Cliente cliente = new Cliente("Carlos","123.560.980-11");
-		
+
+		Categoria computadores = new Categoria("COMPUTADOR");
+		Produto produto2 = new Produto("NOTEBOOK", "DELL", new BigDecimal(7000), computadores);
+		Cliente cliente2 = new Cliente("Antonio","493.560.980-11");
+
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		ProdutoDao produtoDao = new ProdutoDao(em);
@@ -55,6 +75,11 @@ public class CadastroDePedido {
 		categoriaDao.cadastrar(celulares);
 		produtoDao.cadastrar(produto);
 		clienteDao.cadastrar(cliente);
+		
+		categoriaDao.cadastrar(computadores);
+		produtoDao.cadastrar(produto2);
+		clienteDao.cadastrar(cliente2);
+		
 		em.getTransaction().commit();
 		em.close();
 	}
