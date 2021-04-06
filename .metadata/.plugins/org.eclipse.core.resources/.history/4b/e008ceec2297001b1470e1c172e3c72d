@@ -15,7 +15,6 @@ import br.com.loja.produto.ItemPedido;
 import br.com.loja.produto.Pedido;
 import br.com.loja.produto.Produto;
 import br.com.loja.util.JPAUtil;
-import br.com.loja.vo.RelatorioDeVendasVo;
 
 public class CadastroDePedido {
 
@@ -57,9 +56,8 @@ public class CadastroDePedido {
 			System.out.println(obj[2]);
 		}
 		
-		
-		List<RelatorioDeVendasVo> relatorio2 = pedidoDao.relatorioDeVendasVO();
-		relatorio2.forEach(System.out::println);
+		/*List<RelatorioDeVendasVo> relatorio = pedidoDao.relatorioDeVendas();
+		relatorio.forEach(System.out::println);*/
 		
 	}
 	private static void popularBancoDeDados() {

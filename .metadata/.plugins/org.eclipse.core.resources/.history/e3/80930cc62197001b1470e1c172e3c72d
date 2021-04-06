@@ -15,7 +15,6 @@ import br.com.loja.produto.ItemPedido;
 import br.com.loja.produto.Pedido;
 import br.com.loja.produto.Produto;
 import br.com.loja.util.JPAUtil;
-import br.com.loja.vo.RelatorioDeVendasVo;
 
 public class CadastroDePedido {
 
@@ -26,7 +25,6 @@ public class CadastroDePedido {
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		Produto produto = produtoDao.buscarPorId(1l);
 		Produto produto2 = produtoDao.buscarPorId(2l);
-		Produto produto3 = produtoDao.buscarPorId(3l);
 		
 		ClienteDao clienteDao = new ClienteDao(em);
 		Cliente cliente = clienteDao.buscarPorId(1l);
@@ -38,7 +36,6 @@ public class CadastroDePedido {
 
 		Pedido pedido2 = new Pedido(cliente2);
 		pedido.adcionarItem(new ItemPedido(5, pedido2, produto2));
-		pedido.adcionarItem(new ItemPedido(7, pedido2, produto3));
 
 		
 		PedidoDao pedidoDao = new PedidoDao(em);
@@ -51,15 +48,12 @@ public class CadastroDePedido {
 		
 		List<Object[]> relatorio = pedidoDao.relatorioDeVendas();
 		for (Object[] obj : relatorio) {
-			System.out.println("Produto:");
-			System.out.println(obj[0]);
-			System.out.println(obj[1]);
-			System.out.println(obj[2]);
+			System.out.println("Produto 1: " + obj[0]);
+			System.out.println("Produto 2: " + obj[1]);
 		}
 		
-		
-		List<RelatorioDeVendasVo> relatorio2 = pedidoDao.relatorioDeVendasVO();
-		relatorio2.forEach(System.out::println);
+		/*List<RelatorioDeVendasVo> relatorio = pedidoDao.relatorioDeVendas();
+		relatorio.forEach(System.out::println);*/
 		
 	}
 	private static void popularBancoDeDados() {
@@ -70,6 +64,7 @@ public class CadastroDePedido {
 		Categoria computadores = new Categoria("COMPUTADOR");
 		Produto produto2 = new Produto("NOTEBOOK", "DELL", new BigDecimal(7000), computadores);
 		Cliente cliente2 = new Cliente("Antonio","493.560.980-11");
+
 		
 		Categoria eletronicos = new Categoria("ELETRONICOS");
 		Produto produto3 = new Produto("Barbeador", "LG", new BigDecimal(500), eletronicos);
@@ -88,10 +83,7 @@ public class CadastroDePedido {
 		
 		categoriaDao.cadastrar(computadores);
 		produtoDao.cadastrar(produto2);
-		
-		categoriaDao.cadastrar(eletronicos);
 		produtoDao.cadastrar(produto3);
-		
 		clienteDao.cadastrar(cliente2);
 		
 		em.getTransaction().commit();

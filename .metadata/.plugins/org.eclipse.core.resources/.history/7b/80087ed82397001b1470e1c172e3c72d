@@ -33,6 +33,6 @@ public final class RelatorioDeVendasVo {
 	public String toString() {
 		return "RelatorioDeVendasVo [nomeProduto=" + nomeProduto + ", quantidadeVendida=" + quantidadeVendida
 				+ ", dataUltimaVenda=" + dataUltimaVenda + "]";
-	}
+	}	
 	
 }

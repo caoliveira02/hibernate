@@ -59,7 +59,7 @@ public class CadastroDePedido {
 		
 		
 		List<RelatorioDeVendasVo> relatorio2 = pedidoDao.relatorioDeVendasVO();
-		relatorio2.forEach(System.out::println);
+		relatorio.forEach(System.out::println);
 		
 	}
 	private static void popularBancoDeDados() {

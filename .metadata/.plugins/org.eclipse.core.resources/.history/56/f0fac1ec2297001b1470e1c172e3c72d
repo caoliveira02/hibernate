@@ -41,19 +41,19 @@ public class PedidoDao {
 				.getResultList();
 	}
 	
-	public  List<RelatorioDeVendasVo> relatorioDeVendasVO() {
-		String jpql = "SELECT new br.com.loja.vo.RelatorioDeVendasVo (" 
-				+ "produto.nome, "
+	/*public  List<RelatorioDeVendasVo> relatorioDeVendasVO() {
+		String jpql = "SELECT produto.nome, "
 				+ "SUM(item.quantidade), "
-			    + "MAX(pedido.dataCadastro)) "
+			    + "MAX(pedido.dataCadastro) "
 				+ "FROM Pedido pedido "
 			    + "JOIN pedido.itens item "
 				+ "JOIN item.produto produto "
 			    + "GROUP BY produto.nome "
 				+ "ORDER BY item.quantidade DESC";
 		
-		return em.createQuery(jpql, RelatorioDeVendasVo.class)
+		return em.createQuery(jpql, RelatorioDeVendasVo)
 				.getResultList();
-	}
+
+	}*/
 	
 }
