@@ -15,10 +15,8 @@
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="br.com.loja.produto.Categoria"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="br.com.loja.produto.Pedido"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.CascadeType"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="br.com.loja.vo.RelatorioDeVendasVo"/>
     <fullyQualifiedTypeName name="org.hibernate.internal.build.AllowSysOut"/>
     <fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
     <fullyQualifiedTypeName name="org.hibernate.mapping.List"/>
@@ -27,4 +25,7 @@
     <fullyQualifiedTypeName name="com.sun.xml.bind.v2.schemagen.xmlschema.List"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.loja.vo.RelatorioDeVendasVo"/>
+    <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+    <fullyQualifiedTypeName name="br.com.loja.produto.Pedido"/>
 </qualifiedTypeNameHistroy>

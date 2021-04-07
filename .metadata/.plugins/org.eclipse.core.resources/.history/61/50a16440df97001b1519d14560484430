@@ -96,7 +96,6 @@ public class ProdutoDao {
 			query.setParameter("dataCadastro", dataCadastro); 
 		}
 	
-		return query.getResultList();
 		
 	}
 
