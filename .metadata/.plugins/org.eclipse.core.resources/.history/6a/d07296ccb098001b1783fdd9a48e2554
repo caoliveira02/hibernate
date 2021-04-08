@@ -1,7 +1,5 @@
 package br.com.loja.produto;
 
-
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +13,6 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Embedded
 	private DadosPessoais dadosPessoais;
 
 	
@@ -33,18 +29,6 @@ public class Cliente {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return this.dadosPessoais.getNome();
-	}
-	
-	public String getCpf() {
-		return this.dadosPessoais.getCpf();
-	}
-	
-	public DadosPessoais getDadosPessoais() {
-		return dadosPessoais;
 	}
 
 }
