@@ -76,7 +76,7 @@ public class ProdutoDao {
 			LocalDate dataCadastro){
 		String jpql = "SELECT p FROM Produto p WHERE 1=1 ";
 		
-		if (nome != null && !nome.trim().isEmpty()) {
+		if (nome != null && nome.trim().isEmpty()) {
 			jpql += " AND p.nome = :nome "; 
 		}
 		
@@ -89,7 +89,7 @@ public class ProdutoDao {
 		}
 		
 		TypedQuery<Produto> query = em.createQuery(jpql, Produto.class);
-		if (nome != null && !nome.trim().isEmpty()) {
+		if (nome != null && nome.trim().isEmpty()) {
 			query.setParameter("nome", nome);
 		}
 		
@@ -112,7 +112,7 @@ public class ProdutoDao {
 		Root<Produto> from = query.from(Produto.class);
 	
 		Predicate filtros = builder.and();
-		if (nome != null && !nome.trim().isEmpty()) {
+		if (nome != null && nome.trim().isEmpty()) {
 			filtros = builder.and(filtros, builder.equal(from.get("nome"), nome));
 		}
 		
@@ -123,6 +123,7 @@ public class ProdutoDao {
 		if (dataCadastro != null) {
 			filtros = builder.and(filtros, builder.equal(from.get("dataCadastro"), dataCadastro));
 		}
+		
 		query.where(filtros);
 		
 		return em.createQuery(query).getResultList();
