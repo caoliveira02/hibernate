@@ -1,0 +1,9 @@
+package br.com.loja.produto;
+
+public class Livro extends Produto {
+
+	private String autor;
+	private Integer numeroDePaginas;
+	
+	
+}
