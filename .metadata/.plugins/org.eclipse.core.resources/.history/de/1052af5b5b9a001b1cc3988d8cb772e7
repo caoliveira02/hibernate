@@ -10,20 +10,6 @@ import javax.persistence.Table;
 @Table(name = "categorias")
 public class Categoria {
 
-	/*@EmbeddedId
-	private CategoriaId id;
-
-	public Categoria() {
-	}
-	
-	public Categoria(String nome, String tipo) {
-		this.id = new CategoriaId(nome, tipo);
-	}
-
-	public String getNome() {
-		return this.id.getNome();
-	}*/
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -33,6 +19,7 @@ public class Categoria {
 	}
 	
 	public Categoria(String nome) {
+		super();
 		this.nome = nome;
 	}
 
@@ -43,5 +30,6 @@ public class Categoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	
 }

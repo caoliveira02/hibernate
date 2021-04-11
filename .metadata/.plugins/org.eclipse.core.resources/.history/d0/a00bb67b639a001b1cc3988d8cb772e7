@@ -99,9 +99,6 @@ public class CadastroDePedido {
 		clienteDao.cadastrar(cliente2);
 		
 		em.getTransaction().commit();
-		
-		//em.find(Categoria.class , new CategoriaId("CELULARES", "TESTE"));
-		
 		em.close();
 	}
 }
