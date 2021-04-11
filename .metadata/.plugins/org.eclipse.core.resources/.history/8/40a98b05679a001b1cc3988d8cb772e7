@@ -17,7 +17,7 @@ public class CategoriaId implements Serializable{
 
 	public CategoriaId(String nome, String tipo) {
 		this.nome = nome;
-		this.tipo = tipo;
+		//this.tipo = tipo;
 	}
 	
 	public String getNome() {
